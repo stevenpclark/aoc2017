@@ -40,10 +40,9 @@ def spiral2(n):
 
     state = 0
     lim = 1
-    i = 1
 
     while True:
-        val = scratch[r+offset-1:r+offset+2,c+offset-1:c+offset+2].sum()
+        val = int(scratch[r+offset-1:r+offset+2,c+offset-1:c+offset+2].sum())
         scratch[r+offset,c+offset] = val
         print(val)
         if val > n:
