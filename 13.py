@@ -1,5 +1,3 @@
-import numpy as np
-
 class Scanner(object):
     def __init__(self, depth, span):
         self.depth = depth
@@ -13,14 +11,12 @@ class Scanner(object):
 def get_min_safe_delay(scanners):
     delay = 0
     while True:
-        #if delay % 1000 == 0:
-            #print delay
         for scanner in scanners:
             if scanner.at_zero(delay+scanner.depth):
                 #caught!
                 break
         else:
-            #made it all the way through!
+            #made it all the way through
             return delay
         delay += 1
 
