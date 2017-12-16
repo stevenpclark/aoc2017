@@ -1,12 +1,11 @@
 #python3 only! range vs. xrange
 
-from tqdm import tqdm
-
 if __name__ == '__main__':
 
     a = list('abcdefghijklmnop')
     op_list = []
     operands_list = []
+
 
     with open('16.txt', 'r') as f:
         moves = f.readline().strip().split(',')
@@ -23,7 +22,11 @@ if __name__ == '__main__':
         op_list.append(move[0])
         operands_list.append(operands)
 
-    for i in tqdm(range(1000000000)):
+    seen = set()
+    results = []
+    period = 0
+
+    for i in range(1000000000):
         for op, operands in zip(op_list, operands_list):
             if op == 's':
                 n = operands[0]
@@ -36,7 +39,15 @@ if __name__ == '__main__':
                 n1 = a.index(p1)
                 n2 = a.index(p2)
                 a[n1], a[n2] = a[n2], a[n1]
+        result = ''.join(a)
+        if result in seen:
+            period = i
+            break
+        else:
+            seen.add(result)
+            results.append(result)
 
-    print(''.join(a))
+    print(period)
 
+    print(results[(1000000000-1)%period])
 
