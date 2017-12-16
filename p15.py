@@ -1,22 +1,22 @@
-def my_gen(start, factor):
+def my_gen(start, factor, criteria=None):
     prev = start
     while True:
         prev = (prev*factor)%2147483647
-        yield prev
+        if criteria is None or prev%criteria == 0:
+            yield prev
+
+def score(gen_a, gen_b, num_comparisons):
+    score = 0
+    for i in range(num_comparisons):
+        val_a = gen_a.next()
+        val_b = gen_b.next()
+        if (val_a & 0xFFFF) == (val_b & 0xFFFF):
+            score += 1
+    return score
+
 
 if __name__ == '__main__':
-    #genA = my_gen(65, 16807)
-    #genB = my_gen(8921, 48271)
-    #print(genA.next())
-    #print(genA.next())
 
-    genA = my_gen(703, 16807)
-    genB = my_gen(516, 48271)
+    print(score(my_gen(703, 16807), my_gen(516, 48271), 40000000))
+    print(score(my_gen(703, 16807, 4), my_gen(516, 48271, 8), 5000000))
 
-    count = 0
-    for i in range(40000000):
-        valA = genA.next()
-        valB = genB.next()
-        if (valA & 0xFFFF) == (valB & 0xFFFF):
-            count += 1
-    print(count)
