@@ -30,9 +30,22 @@ def twist_me(array, twist_lens, iterations=1):
 
     return array
 
+def get_hash_str(s):
+    array = range(256)
+    twist_lens = [ord(c) for c in s]
+    twist_lens.extend([17, 31, 73, 47, 23])
+    twist_me(array, twist_lens, iterations=64)
+
+    dense_hash = [reduce(xor, chunk) for chunk in grouper(array, 16)]
+    hash_str = struct.pack('B'*16, *dense_hash)
+    return hash_str.encode('hex')
+
+
 
 if __name__ == '__main__':
     assert twist_me([0,1,2,3,4], [3,4,1,5]) == [3,4,2,1,0]
+    assert get_hash_str('') == 'a2582a3a0e66e6e86e3812dcb672a272'
+    assert get_hash_str('AoC 2017') == '33efeb34ea91902bb2f59c9920caa6cd'
 
     with open('10.txt', 'r') as f:
         input_str = f.readline().strip()
@@ -44,11 +57,6 @@ if __name__ == '__main__':
     print(array[0]*array[1])
 
     #part 2
-    array = range(256)
-    twist_lens = [ord(c) for c in input_str]
-    twist_lens.extend([17, 31, 73, 47, 23])
-    twist_me(array, twist_lens, iterations=64)
+    hash_str = get_hash_str(input_str)
+    print(hash_str)
 
-    dense_hash = [reduce(xor, chunk) for chunk in grouper(array, 16)]
-    hash_str = struct.pack('B'*16, *dense_hash)
-    print(hash_str.encode('hex'))
