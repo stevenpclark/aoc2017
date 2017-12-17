@@ -1,33 +1,35 @@
 #python3 only!
+import numpy as np
 from tqdm import tqdm
 
-#use circular linked list
-class Node(object):
-    def __init__(self, x, parent=None):
-        self.x = x
-        if parent:
-            self.next = parent.next
-            parent.next = self
-        else:
-            self.next = self
-
-def print_nodes(node, count):
+def print_a(a, count):
+    x = 0
     for i in range(count):
-        print(node.x, end=' ')
-        node = node.next
+        print(x, end=' ')
+        x = a[x]
     print()
 
 if __name__ == '__main__':
-    zero = Node(0)
-    curr_node = zero
+    x = 0
+    #step = 3
+    #n = 10
     step = 359
     n = 50000000
+    a = np.zeros(n+1, dtype=int)
     for val in tqdm(range(1,n+1)):
-        #print('curr_node:', curr_node.x)
-        #print_nodes(zero, val)
+        #print('curr_node:', x)
+        #print_a(a, val)
         for i in range(step):
-            curr_node = curr_node.next
-        curr_node = Node(val, curr_node)
+            x = a[x]
+        #append val after x
+        #set val's child to x's child
+        #set x's child to val
+        #set x to val
 
-    print(zero.next.x)
+        a[val] = a[x]
+        a[x] = val
+        x = val
+        #print(a)
+
+    print(a[0])
 
