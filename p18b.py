@@ -34,7 +34,7 @@ def run(p, cmds, q_in, q_out):
             regs[x] = regs[x] % y
         elif op == 'rcv':
             try:
-                y = int(q_in.get(block=True, timeout=3))
+                y = q_in.get(block=True, timeout=3)
                 regs[x] = y
             except Empty:
                 break
