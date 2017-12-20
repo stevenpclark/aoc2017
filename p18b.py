@@ -7,13 +7,9 @@ def run(p, cmds, q_in, q_out):
     regs = defaultdict(int)
     regs['p'] = p
 
-    send_cmds = 0
-
-    positions = defaultdict(int)
-
+    send_count = 0
 
     while 0<=pos<len(cmds):
-        positions[pos] += 1
         cmd = cmds[pos]
 
         op = cmd[0]
@@ -27,7 +23,7 @@ def run(p, cmds, q_in, q_out):
 
         if op == 'snd':
             q_out.put(regs[x])
-            send_cmds += 1
+            send_count += 1
         elif op == 'set':
             regs[x] = y
         elif op == 'add':
@@ -53,7 +49,7 @@ def run(p, cmds, q_in, q_out):
                 continue
 
         pos += 1
-    print('program %d exited, sent %d' % (p, send_cmds))
+    print('program %d exited, sent %d' % (p, send_count))
 
 
 if __name__ == '__main__':
