@@ -15,7 +15,7 @@ cube_dirs = {
 def dist_from_origin(pos):
     return max(abs(pos))
 
-with open('11.txt', 'r') as f:
+with open('input/11.txt', 'r') as f:
     dirs = f.readline().strip().split(',')
 
 max_dist = 0

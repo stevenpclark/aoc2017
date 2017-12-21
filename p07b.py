@@ -25,7 +25,7 @@ def get_total_weight(node):
 
 node_dict = defaultdict(Node) #names to nodes
 
-with open('7.txt', 'r') as f:
+with open('input/7.txt', 'r') as f:
     for li in f.readlines():
         words = li.split()
         name = words[0]

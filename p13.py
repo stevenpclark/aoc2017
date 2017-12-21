@@ -24,7 +24,7 @@ def get_min_safe_delay(scanners):
 if __name__ == '__main__':
     depths = []
     spans = []
-    with open('13.txt', 'r') as f:
+    with open('input/13.txt', 'r') as f:
         for li in f.readlines():
             s_depth, s_span = li.split(':')
             depths.append(int(s_depth))

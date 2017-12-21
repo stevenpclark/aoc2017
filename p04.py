@@ -1,4 +1,4 @@
-with open('4.txt', 'r') as f:
+with open('input/4.txt', 'r') as f:
     lines = f.readlines()
     num_valid = 0
     for li in lines:

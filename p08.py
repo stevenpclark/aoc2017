@@ -3,7 +3,7 @@ from collections import defaultdict
 regs = defaultdict(int)
 max_val = 0
 
-with open('8.txt', 'r') as f:
+with open('input/8.txt', 'r') as f:
     for li in f.readlines():
         w = li.split()
         if w[1] == 'inc':

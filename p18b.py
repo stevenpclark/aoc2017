@@ -53,7 +53,7 @@ def run(p, cmds, q_in, q_out):
 
 
 if __name__ == '__main__':
-    with open('18.txt', 'r') as f:
+    with open('input/18.txt', 'r') as f:
         lines = f.readlines()
 
     cmds = [li.strip().split() for li in lines]

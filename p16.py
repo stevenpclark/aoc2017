@@ -7,7 +7,7 @@ if __name__ == '__main__':
     operands_list = []
 
 
-    with open('16.txt', 'r') as f:
+    with open('input/16.txt', 'r') as f:
         moves = f.readline().strip().split(',')
 
     for move in moves:

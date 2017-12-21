@@ -47,7 +47,7 @@ if __name__ == '__main__':
     assert get_hash_str('') == 'a2582a3a0e66e6e86e3812dcb672a272'
     assert get_hash_str('AoC 2017') == '33efeb34ea91902bb2f59c9920caa6cd'
 
-    with open('10.txt', 'r') as f:
+    with open('input/10.txt', 'r') as f:
         input_str = f.readline().strip()
 
     #part 1

@@ -1,4 +1,4 @@
-with open('9.txt', 'r') as f:
+with open('input/9.txt', 'r') as f:
     score = 0
     group_depth = 0
     garbage_count = 0

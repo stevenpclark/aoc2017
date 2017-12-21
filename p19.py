@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    with open('19.txt', 'r') as f:
+    with open('input/19.txt', 'r') as f:
         rows = [li.strip('\n') for li in f.readlines()]
 
     num_rows = len(rows)

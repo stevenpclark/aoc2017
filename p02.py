@@ -1,4 +1,4 @@
-with open('2.txt', 'r') as f:
+with open('input/2.txt', 'r') as f:
     total = 0
     for li in f.readlines():
         nums = [int(s) for s in li.split()]

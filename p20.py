@@ -2,7 +2,7 @@ from collections import defaultdict
 import numpy as np
 
 if __name__ == '__main__':
-    with open('20.txt', 'r') as f:
+    with open('input/20.txt', 'r') as f:
         lines = [li.strip() for li in f.readlines()]
 
     n = len(lines)

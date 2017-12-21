@@ -3,7 +3,7 @@ from collections import defaultdict
 child_dict = defaultdict(list) #int to list of ints
 
 untagged_set = set()
-with open('12.txt', 'r') as f:
+with open('input/12.txt', 'r') as f:
     for li in f.readlines():
         left, right = li.split(' <-> ')
         parent = int(left)

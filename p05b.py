@@ -17,7 +17,7 @@ def steps_to_escape(array):
 
 assert steps_to_escape([0, 3, 0, 1, -3]) == 10
 
-with open('5.txt', 'r') as f:
+with open('input/5.txt', 'r') as f:
     array = [int(li) for li in f.readlines()]
     print(steps_to_escape(array))
 
